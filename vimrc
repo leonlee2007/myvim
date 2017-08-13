@@ -128,11 +128,11 @@ let Tlist_WinWidth = 80
 "colorscheme molokai
 "set wildignore+=*/tmp/*,*/prof_output/*,*/ebin/*,*.so,*.swp,*.zip     " Linux/MacOSX
 "let g:ctrlp_user_command = 'ag -g \.erl$ %s'
-"let g:ctrlp_user_command = 'find %s -type f  -name *.erl -o -name *.hrl -o -name *.log -o -name *.proto' 
-
-let g:ctrlp_user_command = 'find %s -type f | grep "\.csv$\|\.lua$\|\.log$\|\.proto$\|\.hrl$\|\.erl$"'
+"let g:ctrlp_user_command = 'find %s -type f | grep "\.csv$\|\.lua$\|\.log$\|\.proto$\|\.hrl$\|\.erl$"' "linux有效， mac只认最后一项
+"let g:ctrlp_user_command = 'find %s -type f  -name *.erl -o -name *.hrl -o -name *.log -o -name *.proto' "mac和linux 有效
 "noremap <c-a> :%ArrangeColumn<cr>
 
+let g:ctrlp_user_command = 'find %s -type f  -name "*.erl" -o -name "*.hrl" -o -name "*.log" -o -name "*.proto" -o -name "*.sh" ' "mac和linux 有效
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:45'
 
 "let g:UltiSnipsExpandTrigger  = "<c-b>"
@@ -173,4 +173,6 @@ nnoremap <leader>t :CtrlPBuffer<cr>
 "inoremap <tab> :<Esc>CtrlPBuffer<cr> 
 "nnoremap <tab> :CtrlPBuffer<cr>
 
-set path+=~/p4/trunk/server/common/**/
+"set path+=~/p4/trunk/server/common/**/
+"set path+=common/**/
+set path+=**/
