@@ -128,11 +128,11 @@ let Tlist_WinWidth = 80
 "colorscheme molokai
 "set wildignore+=*/tmp/*,*/prof_output/*,*/ebin/*,*.so,*.swp,*.zip     " Linux/MacOSX
 "let g:ctrlp_user_command = 'ag -g \.erl$ %s'
-"let g:ctrlp_user_command = 'find %s -type f | grep "\.csv$\|\.lua$\|\.log$\|\.proto$\|\.hrl$\|\.erl$"' "linux有效， mac只认最后一项
 "let g:ctrlp_user_command = 'find %s -type f  -name *.erl -o -name *.hrl -o -name *.log -o -name *.proto'
 "noremap <c-a> :%ArrangeColumn<cr>
 
-let g:ctrlp_user_command = 'find %s -type f  -name "*.erl" -o -name "*.hrl" -o -name "*.log" -o -name "*.proto" -o -name "*.sh" ' "mac和linux 有效
+let g:ctrlp_user_command = 'find %s -type f | grep "\.erl$\|\.hrl$\|\.csv$\|\.lua$\|\.log$\|\.proto$"' "linux有效， mac只认最后一项
+"let g:ctrlp_user_command = 'find %s -type f   -o -name "*.hrl" -o -name "*.log" -o -name "*.proto" -o -name "*.csv"-o -name "*.sh" -name "*.erl"' "mac和linux 有效
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:45'
 
 "let g:UltiSnipsExpandTrigger  = "<c-b>"
@@ -164,8 +164,8 @@ nnoremap <leader>wc :%s/\<<c-r>=expand("<cword>")<cr>\>/<c-r>=expand("<cword>")<
 inoremap <leader>wn <Esc>:%s/\<<c-r>=expand("<cword>")<cr>\>//gn<cr>
 nnoremap <leader>wn :%s/\<<c-r>=expand("<cword>")<cr>\>//gn<cr>
 
-inoremap <leader>h <Esc>:CtrlPMRUFiles<cr>
-nnoremap <leader>h :CtrlPMRUFiles<cr>
+inoremap <leader>e <Esc>:CtrlPMRUFiles<cr>
+nnoremap <leader>e :CtrlPMRUFiles<cr>
 inoremap <leader>r <Esc>:CtrlPBufTag<cr>
 nnoremap <leader>r :CtrlPBufTag<cr>
 inoremap <leader>t <Esc>:CtrlPBuffer<cr>
