@@ -128,11 +128,11 @@ let Tlist_WinWidth = 80
 "colorscheme molokai
 "set wildignore+=*/tmp/*,*/prof_output/*,*/ebin/*,*.so,*.swp,*.zip     " Linux/MacOSX
 "let g:ctrlp_user_command = 'ag -g \.erl$ %s'
+"let g:ctrlp_user_command = 'find %s -type f | grep "\.csv$\|\.lua$\|\.log$\|\.proto$\|\.hrl$\|\.erl$"' "linux有效， mac只认最后一项
 "let g:ctrlp_user_command = 'find %s -type f  -name *.erl -o -name *.hrl -o -name *.log -o -name *.proto'
 "noremap <c-a> :%ArrangeColumn<cr>
 
-let g:ctrlp_user_command = 'find %s -type f | grep "\.erl$\|\.hrl$\|\.csv$\|\.lua$\|\.log$\|\.proto$"' "linux有效， mac只认最后一项
-"let g:ctrlp_user_command = 'find %s -type f   -o -name "*.hrl" -o -name "*.log" -o -name "*.proto" -o -name "*.csv"-o -name "*.sh" -name "*.erl"' "mac和linux 有效
+let g:ctrlp_user_command = 'find %s -type f  -name "*.erl" -o -name "*.hrl" -o -name "*.log" -o -name "*.proto" -o -name "*.sh" ' "mac和linux 有效
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:45'
 
 "let g:UltiSnipsExpandTrigger  = "<c-b>"
@@ -151,12 +151,14 @@ inoremap <leader>h <esc>:nohl<cr>
 nnoremap <leader>h :nohl<cr>
 xnoremap <leader>h :nohl<cr>
 
-inoremap <leader>f <esc>:Ag 
-nnoremap <leader>f :Ag
-inoremap <leader>fg <esc>:Ag -g <c-r>=expand("<cword>")<cr>
-nnoremap <leader>fg :Ag -g <c-r>=expand("<cword>")<cr>
-inoremap <leader>fe <esc>:Ag --erl <c-r>=expand("<cword>")<cr>
-nnoremap <leader>fe :Ag --erl <c-r>=expand("<cword>")<cr>
+inoremap <leader>f <Esc>:grep -r '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
+nnoremap <leader>f :grep -r '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
+xnoremap <leader>f y:grep -r '<c-r>0' .<cr><cr>:cw<cr><cr>
+
+inoremap <leader>fc <Esc>:grep -r -C1 '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
+nnoremap <leader>fc :grep -r -C1 '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
+xnoremap <leader>fc y:grep -r -C1 '<c-r>0' .<cr><cr>:cw<cr><cr>
+
 inoremap <leader>w <Esc>:%s/<c-r>=expand("<cword>")<cr>/<c-r>=expand("<cword>")<cr>/g<Left><Left>
 nnoremap <leader>w :%s/<c-r>=expand("<cword>")<cr>>/<c-r>=expand("<cword>")<cr>/g<Left><Left>
 inoremap <leader>wc <Esc>:%s/\<<c-r>=expand("<cword>")<cr>\>/<c-r>=expand("<cword>")<cr>/gc<Left><Left><Left>
@@ -170,9 +172,15 @@ inoremap <leader>r <Esc>:CtrlPBufTag<cr>
 nnoremap <leader>r :CtrlPBufTag<cr>
 inoremap <leader>t <Esc>:CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlPBuffer<cr>
+inoremap <leader>" <Esc>:s/<c-r><c-w>/"<c-r><c-w>"/<cr>
+nnoremap <leader>" :s/<c-r><c-w>/"<c-r><c-w>"/<cr>
+xnoremap <leader>" y:s/<c-r>0/"<c-r>0"/<cr>
 "inoremap <tab> :<Esc>CtrlPBuffer<cr> 
 "nnoremap <tab> :CtrlPBuffer<cr>
 
 "set path+=~/p4/trunk/server/common/**/
 "set path+=common/**/
 set path+=**/
+
+xnoremap * y/<c-r>0<cr>
+xnoremap # y?<c-r>0<cr>
