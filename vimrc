@@ -151,13 +151,17 @@ inoremap <leader>h <esc>:nohl<cr>
 nnoremap <leader>h :nohl<cr>
 xnoremap <leader>h :nohl<cr>
 
-inoremap <leader>f <Esc>:grep -r '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
-nnoremap <leader>f :grep -r '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
+inoremap <leader>f <esc>:grep -r '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
+nnoremap <leader>f :grep -r '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
 xnoremap <leader>f y:grep -r '<c-r>0' .<cr><cr>:cw<cr><cr>
-
-inoremap <leader>fc <Esc>:grep -r -C1 '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
-nnoremap <leader>fc :grep -r -C1 '<c-r><c-w>' .<cr><cr>:cw<cr><cr>
-xnoremap <leader>fc y:grep -r -C1 '<c-r>0' .<cr><cr>:cw<cr><cr>
+ 
+inoremap <leader>fe <esc>:grep -r --include=*.erl --include=*hrl --include=*proto '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
+nnoremap <leader>fe :grep -r --include=*.erl --include=*hrl --include=*proto '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
+xnoremap <leader>fe y:grep -r --include=*.erl --include=*hrl --include=*proto  '<c-r>0' .<cr><cr>:cw<cr><cr>
+ 
+inoremap <leader>fc <Esc>:grep -r '\<<c-r><c-w>\>' .
+nnoremap <leader>fc :grep -r '\<<c-r><c-w>\>' .
+xnoremap <leader>fc y:grep -r '<c-r>0' .
 
 inoremap <leader>w <Esc>:%s/<c-r>=expand("<cword>")<cr>/<c-r>=expand("<cword>")<cr>/g<Left><Left>
 nnoremap <leader>w :%s/<c-r>=expand("<cword>")<cr>>/<c-r>=expand("<cword>")<cr>/g<Left><Left>
