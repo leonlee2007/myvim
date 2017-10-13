@@ -185,6 +185,6 @@ xnoremap <leader>" y:s/<c-r>0/"<c-r>0"/<cr>
 "set path+=~/p4/trunk/server/common/**/
 "set path+=common/**/
 set path+=**/
-
+set wildmenu 
 xnoremap * y/<c-r>0<cr>
 xnoremap # y?<c-r>0<cr>
