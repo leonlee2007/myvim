@@ -151,6 +151,7 @@ inoremap <leader>h <esc>:nohl<cr>
 nnoremap <leader>h :nohl<cr>
 xnoremap <leader>h :nohl<cr>
 
+nnoremap <leader>o :!p4 open % <cr>:w!<cr>
 inoremap <leader>f <esc>:grep -r '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
 nnoremap <leader>f :grep -r '\<<c-r><c-w>\>' .<cr><cr>:cw<cr><cr>
 xnoremap <leader>f y:grep -r '<c-r>0' .<cr><cr>:cw<cr><cr>
